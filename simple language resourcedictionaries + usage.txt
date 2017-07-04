@@ -1,0 +1,127 @@
+﻿/**
+ * MIT License
+ * 
+ * Copyright (c) 2017 "Nabil Redmann (BananaAcid) <repo@bananaacid.de>"
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+
+
+Using translations in WPF, VS2017:
+
+1. Add to App.XAML.CS to be useable
+2. add lang-code to setup.iss (InnoSetup if used) as well
+
+
+	in StringResources.xx-XX.xaml
+		<system:String x:Key="sz...">xxxxxx</system:String>
+
+	in WPF-XAML: 
+    .. Content="{DynamicResource sz...}" ..
+	<ScrollViewer Content="{DynamicResource sz...}" />
+    
+	in .cs:
+    (string)TryFindResource("sz...")
+    
+    http://stackoverflow.com/questions/1754615/how-to-assign-a-dynamic-resource-style-in-code
+
+
+
+
+
+
+Required Code:
+
+	Project:
+		TryFindResource() ->
+			Namespace:  System.Windows
+			Assembly:   PresentationFramework (in PresentationFramework.dll)
+
+
+	.\Resources\lang\StringResources.xx-XX.xaml
+	-> Build: Page
+		<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+							xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+							xmlns:system="clr-namespace:System;assembly=mscorlib"
+							>
+			<system:String x:Key="szKeyWord">xxxxxx</system:String>
+			<system:String x:Key="szKey2">xxxxxx</system:String>
+			<TextBlock x:Key="szHelpText1" TextWrapping="Wrap">
+			    <Run Text="Some textline."/>
+				<LineBreak/>
+				<Run Text="Second Textline."/>
+			</TextBlock>
+
+
+	.\App.xaml:
+		<Application ...>
+		   <Application.Resources>
+
+				<ResourceDictionary>
+
+					<ResourceDictionary.MergedDictionaries>
+						<!-- basic language to use in the XAML designer -->
+						<ResourceDictionary Source="pack://application:,,,/Resources/lang/StringResources.de-DE.xaml" />
+
+						... other resources used.
+
+
+	.\App.cs:
+        /// <summary>
+        /// sets a specific locale if supplied, oherwise tries to get the user ones. id none found, falls back to default
+        /// 
+        /// to test, use the project settings, debugging > commandline arguments > add someting like:   /locale=de-DE
+        /// </summary>
+		/// <remarks>
+		/// uses Utils.StartArgs.cs to parse the "locale" path argument
+		/// </remarks>
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            // after the resources have been proccessed (and the default one for VisualStidio's UI editor)
+            //  load the required one (otherwise, in the constructor, it would be prepended to all other resources)
+            SetLanguageDictionary( Utils.StartArgs.Arguments.TryGetValue("locale", out string value) ? value : null );
+        }
+
+
+        /// <summary>
+        /// load a language file, default to english
+        /// 
+        /// based on <see cref="https://www.codeproject.com/Articles/123460/Simplest-Way-to-Implement-Multilingual-WPF-Applica"/>
+        /// </summary>
+        /// <param name="locale">a specific one to use</param>
+        private void SetLanguageDictionary(string locale = null)
+        {
+            ResourceDictionary dict = new ResourceDictionary();
+            switch (locale ?? Thread.CurrentThread.CurrentCulture.ToString())
+            {
+                // LIST:  https://msdn.microsoft.com/en-us/library/ee825488(v=cs.20).aspx
+                case "de-DE":
+                case "de-AT":
+                case "de-LI":
+                case "de-LU":
+                case "de-CH":
+                    dict.Source = new Uri(@".\Resources\lang\StringResources.de-DE.xaml", UriKind.Relative);
+                    break;
+                default:
+                    dict.Source = new Uri(@".\Resources\lang\StringResources.en-US.xaml", UriKind.Relative);
+                    break;
+            }
+            this.Resources.MergedDictionaries.Add(dict);
+        }

@@ -1,0 +1,15 @@
+C:\Users\BananaAcid\OneDrive\_DROPBOX\__Projekte 3\TCP-XMP-Stream\TCP-XML-Stream\bin\Debug\TCP-XML-Stream.exe.config
+C:\Users\BananaAcid\OneDrive\_DROPBOX\__Projekte 3\TCP-XMP-Stream\TCP-XML-Stream\bin\Debug\TCP-XML-Stream.exe
+C:\Users\BananaAcid\OneDrive\_DROPBOX\__Projekte 3\TCP-XMP-Stream\TCP-XML-Stream\bin\Debug\TCP-XML-Stream.pdb
+C:\Users\BananaAcid\OneDrive\_DROPBOX\__Projekte 3\TCP-XMP-Stream\TCP-XML-Stream\obj\Debug\XMLNetworkStreamClient-TestGUI.csprojResolveAssemblyReference.cache
+C:\Users\BananaAcid\OneDrive\_DROPBOX\__Projekte 3\TCP-XMP-Stream\TCP-XML-Stream\obj\Debug\MainWindow.g.cs
+C:\Users\BananaAcid\OneDrive\_DROPBOX\__Projekte 3\TCP-XMP-Stream\TCP-XML-Stream\obj\Debug\App.g.cs
+C:\Users\BananaAcid\OneDrive\_DROPBOX\__Projekte 3\TCP-XMP-Stream\TCP-XML-Stream\obj\Debug\TCP-XML-Stream_MarkupCompile.cache
+C:\Users\BananaAcid\OneDrive\_DROPBOX\__Projekte 3\TCP-XMP-Stream\TCP-XML-Stream\obj\Debug\TCP-XML-Stream_MarkupCompile.lref
+C:\Users\BananaAcid\OneDrive\_DROPBOX\__Projekte 3\TCP-XMP-Stream\TCP-XML-Stream\obj\Debug\MainWindow.baml
+C:\Users\BananaAcid\OneDrive\_DROPBOX\__Projekte 3\TCP-XMP-Stream\TCP-XML-Stream\obj\Debug\TCP-XML-Stream.g.resources
+C:\Users\BananaAcid\OneDrive\_DROPBOX\__Projekte 3\TCP-XMP-Stream\TCP-XML-Stream\obj\Debug\TCP_XML_Stream.Properties.Resources.resources
+C:\Users\BananaAcid\OneDrive\_DROPBOX\__Projekte 3\TCP-XMP-Stream\TCP-XML-Stream\obj\Debug\XMLNetworkStreamClient-TestGUI.csproj.GenerateResource.Cache
+C:\Users\BananaAcid\OneDrive\_DROPBOX\__Projekte 3\TCP-XMP-Stream\TCP-XML-Stream\obj\Debug\XMLNetworkStreamClient-TestGUI.csproj.CoreCompileInputs.cache
+C:\Users\BananaAcid\OneDrive\_DROPBOX\__Projekte 3\TCP-XMP-Stream\TCP-XML-Stream\obj\Debug\TCP-XML-Stream.exe
+C:\Users\BananaAcid\OneDrive\_DROPBOX\__Projekte 3\TCP-XMP-Stream\TCP-XML-Stream\obj\Debug\TCP-XML-Stream.pdb

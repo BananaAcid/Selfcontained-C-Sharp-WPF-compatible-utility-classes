@@ -69,7 +69,7 @@ namespace Utils
     ///                     .Where(prop => prop.Name == "option" + arg.Key).FirstOrDefault();
     /// 
     ///                 if (b != null)
-    ///                     TTCD_Client.Properties.Settings.Default["option" + arg.Key] =
+    ///                     MyAppNamespace.Properties.Settings.Default["option" + arg.Key] =
     ///                      b.PropertyType.Name == "Boolean"
     ///                         ? (new string[] { "true", "on", "yes", "1" }.Contains(arg.Value.ToLower()) ? true : false)
     ///                         : (object)arg.Value;

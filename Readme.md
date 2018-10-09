@@ -4,7 +4,8 @@ __Some classes of my various projects.__
 
 MIT license used.
 
-
+- `TCP-XML-Stream/`
+	- XML Stream functions. Including: .Net Core compatible code, Node Red tester, simple to use
 - `Utils MSFT_Helpers.cs`
 	- is wrapping the __MSFT_StorageObject__, __MSFT_Partition__ and __MSFT_Disk__ system classes for easy use and using IDE completable properties
 - `Utils.Admin.cs`

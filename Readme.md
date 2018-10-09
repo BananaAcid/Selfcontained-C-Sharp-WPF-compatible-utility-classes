@@ -18,6 +18,8 @@ MIT license used.
 	- this uses _WqlEventQuery_ to check for an inserted Disk drive (disk found event watcher), but can be used for any system events
 - `Utils.ObservableProperties.cs`
 	- simple properites that will automagically update the WPF UI if modified (as single properties, as part of your main class)
+- `Utils.SingleInstance.cs`
+	- Prevent the app from running again. No Mutex required, using Task, no TCP.
 - `Utils.StartArgs.cs`
 	- creates a dictionary with distinct start params (change it to list for mutliple same params), supporting linux and windows and microsoft param styles equally
 - `Utils.StartWithWindows.cs`

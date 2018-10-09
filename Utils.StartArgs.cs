@@ -32,14 +32,34 @@ namespace Utils
     /// handle start arguments
     /// </summary>
     /// <example>
-    ///     public App()
+    ///     App.xaml.cs:
+    ///     public partial class App : Application
     ///     {
-    ///         // init arguments
-    ///         Utils.StartArgs.get();
-    ///         
-    ///         if (Utils.StartArgs.Arguments.ContainsKey("help") || Utils.StartArgs.Arguments.ContainsKey("?"))
+    ///         public App()
     ///         {
-    ///         
+    ///             // init arguments
+    ///             Utils.StartArgs.get();
+    ///             
+    ///             // do first check for important stuff
+    ///             if (Utils.StartArgs.Arguments.ContainsKey("help") || Utils.StartArgs.Arguments.ContainsKey("?"))
+    ///             {
+    ///                 // There is no console for GUI apps
+    ///                 if (!ConsoleManager.HasConsoleAttached)
+    ///                 {
+    ///                     MessageBox.Show("Some help.", "Help");
+    ///                 }
+    ///                 else
+    ///                 {
+    ///                     Console.WriteLine("\nSome help.");
+    ///     
+    ///                     // get command prompt back
+    ///                     System.Windows.Forms.SendKeys.SendWait("{ENTER}");
+    ///     
+    ///                     ConsoleManager.Close();
+    ///                 }
+    ///                 // exit after showing help. Do not start GUI (in case of a XAML/WPF app).
+    ///                 Environment.Exit(0);
+    ///             }
     ///         }
     ///     }
     /// </example>

@@ -60,6 +60,21 @@ namespace Utils
     ///                 // exit after showing help. Do not start GUI (in case of a XAML/WPF app).
     ///                 Environment.Exit(0);
     ///             }
+    ///             
+    ///             // update app properties with commandline params -- http://stackoverflow.com/a/21021053/1644202
+    ///             foreach (var arg in Utils.StartArgs.Arguments)
+    ///             {
+    ///                 // check if it exists and get the property type info
+    ///                 var b = MyAppNamespace.Properties.Settings.Default.Properties.Cast<SettingsProperty>()
+    ///                     .Where(prop => prop.Name == "option" + arg.Key).FirstOrDefault();
+    /// 
+    ///                 if (b != null)
+    ///                     TTCD_Client.Properties.Settings.Default["option" + arg.Key] =
+    ///                      b.PropertyType.Name == "Boolean"
+    ///                         ? (new string[] { "true", "on", "yes", "1" }.Contains(arg.Value.ToLower()) ? true : false)
+    ///                         : (object)arg.Value;
+    ///             }
+    /// 
     ///         }
     ///     }
     /// </example>

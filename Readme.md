@@ -39,3 +39,8 @@ MIT license used.
 	- simple explaination on how to create language files as XML resources (strings, textblocks, images, ...), with switchable lang, and WPF UI support (no empty areas)
 - `using windows styled messageboxes in WPF with compatible syntax.txt`
 	- a drop in extension to keep syntax with the WPF MessageBox commands, but using the Windows 8/10 styled ones
+
+more:
+- `filterNewsletterEmlsForSpecificProject.cs` [here](https://gist.github.com/BananaAcid/6e60195598e364b1e12e5d4f92d8c9b8)
+- `eml2img.cs` [here](https://gist.github.com/BananaAcid/6e60d93921469732bd3d29fd2bd88153)
+	- extract images from eml files

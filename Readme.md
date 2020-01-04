@@ -44,3 +44,5 @@ more:
 - `filterNewsletterEmlsForSpecificProject.cs` [here](https://gist.github.com/BananaAcid/6e60195598e364b1e12e5d4f92d8c9b8)
 - `eml2img.cs` [here](https://gist.github.com/BananaAcid/6e60d93921469732bd3d29fd2bd88153)
 	- extract images from eml files
+- `SimplestHttpFileServer.cs` [here](https://gist.github.com/BananaAcid/629b8511a49526340261ed873e2c5ecd)
+	- Super simple c# file server - works with [cs-script](https://www.cs-script.net/)
